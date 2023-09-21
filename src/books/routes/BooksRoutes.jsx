@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Navbar } from "../../ui";
-import { FictionPage, MangaPage } from "../pages";
+import { BookPage, FictionPage, MangaPage, SearchPage } from "../pages";
 import { CartPage, InventoryPage } from "../../shop";
 
 export const BooksRoutes = () => {
@@ -14,12 +14,10 @@ export const BooksRoutes = () => {
           {/* Books */}
           <Route path="fiction" element={<FictionPage />} />
           <Route path="manga" element={<MangaPage />} />
-
-          <Route path="search" element={<MangaPage />} />
-          <Route path="book" element={<MangaPage />} />
+          <Route path="search" element={<SearchPage />} />
+          <Route path="book" element={<BookPage />} />
 
           {/* Shop  */}
-
           <Route path="cart" element={<CartPage />} />
           <Route path="inventory" element={<InventoryPage />} />
         </Routes>
