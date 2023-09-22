@@ -2,7 +2,6 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const navigate = useNavigate();
-  
   const onLogOut = () => {
     navigate("/login", {
       replace: true,
@@ -43,6 +42,8 @@ export const Navbar = () => {
           >
             cart
           </NavLink>
+
+
         </div>
       </div>
 

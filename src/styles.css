@@ -4,7 +4,7 @@
   --font-color-sub: #666;
   --bg-color: beige;
   --main-color: black;
-  padding: 20px;
+  padding: 40px;
   background: lightblue;
   display: flex;
   flex-direction: column;

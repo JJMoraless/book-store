@@ -1,3 +1,16 @@
+import { BookList } from "../components/BookList";
+
 export const MangaPage = () => {
-  return <div>MangaPage</div>;
+  return (
+    <>
+      <br />
+      <h3>MangaPage</h3>
+      <hr />
+      <BookList publisher="DC Comics" />
+
+      <br />
+      <hr />
+      <BookList publisher="Marvel Comics" />
+    </>
+  );
 };

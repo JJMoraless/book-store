@@ -15,7 +15,7 @@ export const BooksRoutes = () => {
           <Route path="fiction" element={<FictionPage />} />
           <Route path="manga" element={<MangaPage />} />
           <Route path="search" element={<SearchPage />} />
-          <Route path="book" element={<BookPage />} />
+          <Route path="book/:id" element={<BookPage />} />
 
           {/* Shop  */}
           <Route path="cart" element={<CartPage />} />
