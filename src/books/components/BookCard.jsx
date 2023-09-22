@@ -12,10 +12,10 @@ export const BookCard = ({
   const charactersByBook = <p>{characters} </p>;
 
   return (
-    <div className="col">
+    <div className="col animate__animated animate__fadeIn">
       <div className="card">
         <div className="row no-gutters">
-          <div className="col-5">
+          <div className="col-5 ">
             <img
               src={bookImageUrl}
               alt={superhero}
