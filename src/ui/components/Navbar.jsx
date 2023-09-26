@@ -1,15 +1,21 @@
+import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth";
 
 export const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const navigate = useNavigate();
   const onLogOut = () => {
+    logOut();
+
     navigate("/login", {
       replace: true,
     });
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark p-2">
+    <nav className="navbar navbar-expand-sm navbar-dark blur p-2">
       <Link className="navbar-brand" to="/">
         Library X
       </Link>
@@ -27,7 +33,7 @@ export const Navbar = () => {
 
           <NavLink
             className={({ isActive }) =>
-              `nav-item nav-link ${isActive ? "active" : ""}  `
+              `nav-item nav-link ${isActive ? "active" : ""}`
             }
             to="/manga"
           >
@@ -36,7 +42,7 @@ export const Navbar = () => {
 
           <NavLink
             className={({ isActive }) =>
-              `nav-item nav-link ${isActive ? "active" : ""}  `
+              `nav-item nav-link ${isActive ? "active" : ""}`
             }
             to="/search"
           >
@@ -45,7 +51,7 @@ export const Navbar = () => {
 
           <NavLink
             className={({ isActive }) =>
-              `nav-item nav-link ${isActive ? "active" : ""}  `
+              `nav-item nav-link ${isActive ? "active" : ""}`
             }
             to="/cart"
           >
@@ -56,7 +62,7 @@ export const Navbar = () => {
 
       <div className="navbar-collapse  w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">JhonMg</span>
+          <span className="nav-item nav-link text-info">{user?.name}</span>
           <button className="nav-item nav-link btn" onClick={onLogOut}>
             logOut
           </button>

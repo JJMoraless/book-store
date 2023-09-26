@@ -1,12 +1,24 @@
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { getBookById } from "../helpers";
 import { useMemo } from "react";
+import { useFetch } from "../../hooks/useFetch";
 
 export const BookPage = () => {
   const { id } = useParams();
   const book = useMemo(() => getBookById(id), [id]);
-
   const navigate = useNavigate();
+
+
+  // gracias a use state se va renderizar 3 veces
+  // 1 - la parte sicrona
+  // 2 - la parte asincrona seState(isLoadingFalse)
+  //     3 - setState(cargarData)
+  
+  const { data, hasError, isLoading } = useFetch(
+    "https://api.breakingbadquotes.xyz/v1/quotes/5"
+  );
+
+  console.log({ data, hasError, isLoading });
 
   if (!book) {
     return <Navigate to="/marvel" />;
@@ -45,7 +57,7 @@ export const BookPage = () => {
         <h5 className="mt-3">characters</h5>
         <p>{book.characters}</p>
 
-        <button onClick={onReturn} className="btn btn-outline-danger">
+        <button onClick={onReturn} className="btn btn-outline-dark">
           regresar
         </button>
       </div>

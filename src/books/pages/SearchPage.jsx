@@ -5,33 +5,41 @@ import { useForm } from "../../hooks/useForm";
 import { BookCard } from "../components";
 import { getBooksByName } from "../helpers";
 
+
+
+/**
+ * - location.search => para obtener la parte de la URL de una página web que contiene los parámetros de consulta
+ * - 
+ * 
+ */
 export const SearchPage = () => {
   const navigate = useNavigate();
-  const { search } = useLocation();
+  const location = useLocation();
+
+  const { q = "" } = queryString.parse(location.search);
+  const books = getBooksByName(q);
+
+  const showSearch = q.length === 0;
+  const showError = q.length > 0 && books.length === 0;
 
   const { searchText, onInputChange } = useForm({
-    searchText: "",
+    searchText: q,
   });
 
+  // evento de escuchar el submit del input de busqueda
   const onSearchSubmit = (e) => {
     e.preventDefault();
-    if (searchText.trim().length <= 1) return [];
     navigate(`?q=${searchText}`);
   };
 
-  const { q = "" } = queryString.parse(search);
-
-  const books = getBooksByName(q);
-  console.log("🚀 ~ file: SearchPage.jsx:25 ~ SearchPage ~ books:", books);
-
   return (
     <>
-      <h1 className="pt-5">Search</h1>
-      <hr />
+      {/* <h1 className="pt-5">Search</h1> */}
+      {/* <hr /> */}
 
-      <div className="row">
+      <div className="row pt-5">
         <div className="col-5">
-          <h4>Searching</h4>
+          <h4>Search</h4>
           <hr />
 
           <form action="" onSubmit={onSearchSubmit}>
@@ -53,11 +61,37 @@ export const SearchPage = () => {
           <h4>Results</h4>
           <hr />
 
-          <div className="alert alert-primary">Search a book</div>
-          <div className="alert alert-danger">No Book with {q}</div>
+          {/* {q === "" ? (
+            <div className="alert alert-primary">Search a book</div>
+          ) : (
+            books.length === 0 && (
+              <div className="alert alert-danger">No Book with {q}</div>
+            )
+          )} */}
+
+          <div
+            className="alert alert-primary animate__animated animate__fadeInDown animate__faster"
+            style={{
+              display: showSearch ? "" : "none",
+            }}
+          >
+            Search a book
+          </div>
+
+          <div
+            className="alert alert-danger animate__animated animate__fadeInDown animate__faster"
+            style={{ display: showError ? "" : "none" }}
+          >
+            No Books with <b> {q} </b>
+          </div>
 
           {books.map((item) => {
-            return <BookCard key={item.id} {...item} />;
+            return (
+              <>
+                <BookCard key={item.id} {...item} />
+                <br />
+              </>
+            );
           })}
         </div>
       </div>

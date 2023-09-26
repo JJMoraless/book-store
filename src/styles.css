@@ -95,4 +95,9 @@
   font-weight: 600;
   color: var(--font-color);
   cursor: pointer;
+} 
+
+.blur {
+  backdrop-filter: blur(8px);
+  background-color: #000000d0;
 }

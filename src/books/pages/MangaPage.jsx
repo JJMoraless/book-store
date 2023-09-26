@@ -3,13 +3,13 @@ import { BookList } from "../components/BookList";
 export const MangaPage = () => {
   return (
     <>
-      <br />
-      <h3>MangaPage</h3>
-      <hr />
+
+      <h3>Manga Section</h3>
+      <hr className="pb-5" />
       <BookList publisher="DC Comics" />
 
       <br />
-      <hr />
+      <br />
       <BookList publisher="Marvel Comics" />
     </>
   );

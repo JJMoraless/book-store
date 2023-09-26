@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+
 export const BookCard = ({
   id,
   superhero,
@@ -12,7 +13,7 @@ export const BookCard = ({
   const charactersByBook = <p>{characters} </p>;
 
   return (
-    <div className="col animate__animated animate__fadeIn">
+    <div className="col-md animate__animated animate__fadeIn">
       <div className="card">
         <div className="row no-gutters">
           <div className="col-5 ">
