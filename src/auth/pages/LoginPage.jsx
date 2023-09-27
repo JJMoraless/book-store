@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context";
 import { useForm } from "../../hooks/useForm";
-import { bookStoreApi } from "../../api";
 import "./styles.css";
+import { bookStoreApi } from "../../helpers/request";
 
 export const LoginPage = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ export const LoginPage = () => {
         password,
       });
 
-      login(authUser.data.data.user);
+      login(authUser.data.data);
     } catch (error) {
       return setErrorAuth(true);
     }
