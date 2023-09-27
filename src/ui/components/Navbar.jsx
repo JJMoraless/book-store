@@ -15,7 +15,7 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark blur p-2">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-black p-2">
       <Link className="navbar-brand" to="/">
         Library X
       </Link>
@@ -57,12 +57,21 @@ export const Navbar = () => {
           >
             cart
           </NavLink>
+
+          <NavLink
+            className={({ isActive }) =>
+              `nav-item nav-link ${isActive ? "active" : ""}`
+            }
+            to="/inventory"
+          >
+            inventory
+          </NavLink>
         </div>
       </div>
 
       <div className="navbar-collapse  w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">{user?.name}</span>
+          <span className="nav-item nav-link text-info">{user?.username}</span>
           <button className="nav-item nav-link btn" onClick={onLogOut}>
             logOut
           </button>

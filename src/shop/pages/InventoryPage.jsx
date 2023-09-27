@@ -1,3 +1,5 @@
+import ListOfProducts from "../components/ListOfProducts";
+
 export const InventoryPage = () => {
-  return <div>InvetoryPage</div>;
+  return <ListOfProducts />;
 };

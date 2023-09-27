@@ -8,12 +8,11 @@ export const BookPage = () => {
   const book = useMemo(() => getBookById(id), [id]);
   const navigate = useNavigate();
 
-
   // gracias a use state se va renderizar 3 veces
   // 1 - la parte sicrona
   // 2 - la parte asincrona seState(isLoadingFalse)
   //     3 - setState(cargarData)
-  
+
   const { data, hasError, isLoading } = useFetch(
     "https://api.breakingbadquotes.xyz/v1/quotes/5"
   );
@@ -29,8 +28,8 @@ export const BookPage = () => {
   };
 
   return (
-    <div className="row mt-5">
-      <div className="col-4 ">
+    <div className="row">
+      <div className="col-md-4 ">
         <img
           src={`/assets/heroes/${id}.jpg`}
           alt={book.superhero}
@@ -38,7 +37,7 @@ export const BookPage = () => {
         />
       </div>
 
-      <div className="col-8">
+      <div className="col-md-6">
         <h3> {book.superhero} </h3>
         <ul className="list-group list-group-flush">
           <li className="list-group-item">
@@ -54,10 +53,10 @@ export const BookPage = () => {
           </li>
         </ul>
 
-        <h5 className="mt-3">characters</h5>
+        <h5 className="mt-3"><b>characters</b></h5>
         <p>{book.characters}</p>
 
-        <button onClick={onReturn} className="btn btn-outline-dark">
+        <button onClick={onReturn} className="btn btn-outline-dark mt-4 ">
           regresar
         </button>
       </div>

@@ -14,12 +14,7 @@ const init = () => {
 export const AuthProvider = ({ children }) => {
   const [authState, dispatch] = useReducer(authReducer, {}, init);
 
-  const login = (name = "") => {
-    const user = {
-      id: "13",
-      name,
-    };
-
+  const login = (user) => {
     const action = {
       type: types.login,
       payload: user,

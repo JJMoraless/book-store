@@ -8,9 +8,9 @@ export const BookList = ({ publisher }) => {
 
   return (
     <>
-      <h3>{publisher}</h3>
+      <h3 className="pb-3 display-6">{publisher}</h3>
 
-      <ul className="row row-cols-md-3 g-3">
+      <ul className="row row-cols-md-3 g-3 pb-5">
         {books.map((item) => (
           <BookCard key={item.id} {...item} />
         ))}

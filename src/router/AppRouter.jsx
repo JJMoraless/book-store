@@ -8,7 +8,6 @@ export const AppRouter = () => {
   return (
     <>
       <Routes>
-        {/* Auth */}
         <Route
           path="/login"
           element={
@@ -18,7 +17,6 @@ export const AppRouter = () => {
           }
         />
 
-        {/* Books */}
         <Route
           path="/*"
           element={
