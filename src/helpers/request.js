@@ -1,6 +1,6 @@
 import axios from "axios";
 const user = JSON.parse(localStorage.getItem("user"));
-export const baseApi = "http://localhost:8888";
+export const baseApi = "http://192.168.129.72:5040";
 console.log("🚀 ~ file: request.js:3 ~ user:", user);
 export const token = user?.token;
 
