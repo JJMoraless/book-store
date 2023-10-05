@@ -1,3 +1,203 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  /* colores */
+  --primario: #1073ba;
+  --secundario: #00da55;
+  --gris: #3b3b3b;
+  --blanco: #ffffff;
+  --negro: #1f1e1e;
+  --grisClaro: #e1e1e1;
+
+  /* fuentes */
+  --fuentePrincipal: "Roboto", sans-serif;
+  --fuenteSecundaria: "Lato", sans-serif;
+
+  /* medidas */
+  --separacion: 5rem;
+}
+
+* {
+  font-family: var(--fuentePrincipal);
+}
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+table thead tr:first-child th {
+  border-bottom: none;
+  padding-bottom: 30px;
+}
+body {
+  font-family: var(--fuentePrincipal);
+}
+
+th {
+  font-weight: 400;
+}
+
+td {
+  font-weight: 300;
+}
+
+/* GLOBALES */
+/* 
+input {
+  border: solid 1px rgb(199, 199, 199) !important;
+} */
+
+input {
+  border: solid rgb(189, 187, 187) 0.2px !important;
+}
+
+textarea {
+  border: solid rgb(189, 187, 187) 0.2px !important;
+}
+.cube-loader {
+  position: relative;
+  /* u can choose any size */
+  width: 75px;
+  height: 75px;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: rotateX(-30deg) rotateY(0);
+  }
+
+  100% {
+    transform: rotateX(-30deg) rotateY(360deg);
+  }
+}
+
+.cube-loader .cube-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* top: 0;
+    left: 0; */
+  transform-style: preserve-3d;
+}
+
+.cube-loader .cube-wrapper .cube-span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* top: 0;
+    left: 0; */
+  /* width 75px / 2 = 37.5px */
+  transform: rotateY(calc(90deg * var(--i))) translateZ(37.5px);
+  background: linear-gradient(
+    to bottom,
+    hsl(0, 0%, 0%) 0%,
+    hsl(0, 0%, 0%) 5.5%,
+    hsl(0, 0%, 0%) 12.1%,
+    hsl(0, 0%, 100%) 100%,
+    hsl(0, 0%, 0%) 27.9%,
+    hsl(0, 0%, 0%) 36.6%,
+    hsl(0, 0%, 0%) 45.6%,
+    hsl(0, 0%, 100%) 100%,
+    hsl(0, 0%, 0%) 63.4%,
+    hsl(0, 0%, 0%) 71.7%,
+    hsl(0, 0%, 0%) 79.4%,
+    hsl(0, 0%, 100%) 100%,
+    hsl(0, 0%, 0%) 100%,
+    hsl(0, 0%, 0%) 100%,
+    hsl(0, 0%, 0%) 100%,
+    hsl(0, 0%, 100%) 100%
+  );
+}
+
+.cube-top {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  background: hsl(330, 3.13%, 25.1%) 0%;
+  /* width 75px / 2 = 37.5px */
+  transform: rotateX(90deg) translateZ(37.5px);
+  transform-style: preserve-3d;
+}
+
+.cube-top::before {
+  content: "";
+  position: absolute;
+  /* u can choose any size */
+  width: 75px;
+  height: 75px;
+  background: hsl(0, 0%, 0%) 19.6%;
+  transform: translateZ(-90px);
+  filter: blur(10px);
+  box-shadow: 0 0 10px #323232, 0 0 20px hsl(0, 0%, 100%) 19.6%,
+    0 0 30px #323232, 0 0 40px hsl(0, 0%, 100%) 19.6%;
+}
+
+.grid-cards {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card-person {
+  position: relative;
+  /* width: 300px; */
+  height: 300px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px;
+  box-shadow: 0 0 0 5px #ffffff80;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-person svg {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-person:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgb(255, 255, 255);
+}
+
+.card__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f0f0f0;
+  transform: rotateX(-90deg);
+  transform-origin: bottom;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.card-person:hover .card__content {
+  transform: rotateX(0deg);
+}
+
+.card__title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card-person:hover svg {
+  scale: 0;
+}
+
+.card__description {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
