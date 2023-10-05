@@ -2,8 +2,57 @@ import { useContext } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../auth";
 
+const VendedorNavBar = () => {
+  return (
+    <>
+      <NavLink
+        className={({ isActive }) =>
+          `nav-item nav-link ${isActive ? "active" : ""}`
+        }
+        to="/inventory"
+      >
+        inventory
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          `nav-item nav-link ${isActive ? "active" : ""}`
+        }
+        to="/manga"
+      >
+        Books
+      </NavLink>
+    </>
+  );
+};
+
+const ReaderNavBar = () => {
+  return (
+    <>
+      <NavLink
+        className={({ isActive }) =>
+          `nav-item nav-link ${isActive ? "active" : ""}`
+        }
+        to="/manga"
+      >
+        Books
+      </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          `nav-item nav-link ${isActive ? "active" : ""}`
+        }
+        to="/cart"
+      >
+        reservations
+      </NavLink>
+    </>
+  );
+};
+
 export const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  user.user.role;
 
   const navigate = useNavigate();
   const onLogOut = () => {
@@ -22,22 +71,15 @@ export const Navbar = () => {
 
       <div className="navbar-collapse">
         <div className="navbar-nav">
-          <NavLink
-            className={({ isActive }) =>
-              `nav-item nav-link ${isActive ? "active" : ""}  `
-            }
-            to="/fiction"
-          >
-            fiction
-          </NavLink>
+          {user.user.role === "reader" ? <ReaderNavBar /> : <VendedorNavBar />}
 
-          <NavLink
+          {/* <NavLink
             className={({ isActive }) =>
               `nav-item nav-link ${isActive ? "active" : ""}`
             }
             to="/manga"
           >
-            manga
+            Books
           </NavLink>
 
           <NavLink
@@ -55,7 +97,7 @@ export const Navbar = () => {
             }
             to="/cart"
           >
-            cart
+            reservations
           </NavLink>
 
           <NavLink
@@ -65,13 +107,15 @@ export const Navbar = () => {
             to="/inventory"
           >
             inventory
-          </NavLink>
+          </NavLink> */}
         </div>
       </div>
 
       <div className="navbar-collapse  w-100 order-3 dual-collapse2 d-flex justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">{user?.user?.username}</span>
+          <span className="nav-item nav-link text-info">
+            {user?.user?.username}
+          </span>
           <button className="nav-item nav-link btn" onClick={onLogOut}>
             logOut
           </button>

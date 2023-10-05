@@ -1,3 +1,10 @@
+import { TableOfReservations } from "../components/TableOfReservations";
+  
 export const CartPage = () => {
-  return <div>CartPage</div>;
+  return <TableOfReservations />;
 };
+
+
+
+
+
