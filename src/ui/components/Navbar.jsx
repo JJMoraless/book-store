@@ -22,6 +22,15 @@ const VendedorNavBar = () => {
       >
         Books
       </NavLink>
+
+      <NavLink
+        className={({ isActive }) =>
+          `nav-item nav-link ${isActive ? "active" : ""}`
+        }
+        to="/cart"
+      >
+        reservations
+      </NavLink>
     </>
   );
 };

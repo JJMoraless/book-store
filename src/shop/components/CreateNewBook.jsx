@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { addBook } from "../../store/books";
 
 export const CreateNewBook = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const dispatch = useDispatch();
 
   const onSubmit = (data) => {
@@ -18,6 +18,7 @@ export const CreateNewBook = () => {
       formMap.append(key, valueForm);
     }
     dispatch(addBook(formMap));
+    reset();
   };
 
   return (

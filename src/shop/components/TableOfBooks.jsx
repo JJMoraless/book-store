@@ -1,5 +1,4 @@
 import {
-  PencilSquareIcon,
   TrashIcon,
   ArrowUturnLeftIcon,
   ArrowUturnRightIcon,
@@ -69,14 +68,6 @@ export const TableOfBooks = () => {
                     className="btn p-0"
                   >
                     <TrashIcon
-                      style={{
-                        width: "25px",
-                        strokeWidth: "1",
-                      }}
-                    />
-                  </button>
-                  <button className="btn p-0">
-                    <PencilSquareIcon
                       style={{
                         width: "25px",
                         strokeWidth: "1",

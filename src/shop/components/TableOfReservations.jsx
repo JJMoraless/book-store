@@ -6,10 +6,7 @@ import { getReservations } from "../../store/reservations";
 
 export const TableOfReservations = () => {
   const { reservations } = useSelector((state) => state.reservations);
-  console.log(
-    "🚀 ~ file: TableOfReservations.jsx:14 ~ TableOfReservations ~ reservations:",
-    reservations
-  );
+
 
   const dispatch = useDispatch();
 
