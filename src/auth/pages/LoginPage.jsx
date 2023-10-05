@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context";
 import { useForm } from "../../hooks/useForm";
 import "./styles.css";
@@ -29,6 +29,8 @@ export const LoginPage = () => {
         password,
       });
 
+
+      
       login(authUser.data.data);
     } catch (error) {
       return setErrorAuth(true);
@@ -38,12 +40,13 @@ export const LoginPage = () => {
     navigate(lastPath, {
       replace: true,
     });
+
   };
 
   return (
     <div className="bg-dark-subtle container-fluid">
       <div className="container vw-100 vh-100 d-flex justify-content-center align-items-center">
-        <form className="form row ">
+        <form onSubmit={onLogin} className="form row ">
           <div className="title">
             Welcome to X library.
             <br />
@@ -75,9 +78,9 @@ export const LoginPage = () => {
             <b>💀 Credenciales Incorrectas</b>
           </div>
 
-          <button onClick={onLogin} className="button-confirm">
-            Let`s go →
-          </button>
+          <button className="button-confirm">login</button>
+
+          <NavLink to="/register">create a count</NavLink>
         </form>
       </div>
     </div>

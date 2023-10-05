@@ -3,6 +3,8 @@ import { BooksRoutes } from "../books";
 import { LoginPage } from "../auth";
 import { PrivateRoute } from "./PrivateRoute";
 import { PublicRoute } from "./PublicRoute";
+import { RegisterPage } from "../auth/pages/RegisterPage";
+// import { RegisterPage } from "../auth/pages/RegisterPage";
 
 export const AppRouter = () => {
   return (
@@ -13,6 +15,15 @@ export const AppRouter = () => {
           element={
             <PublicRoute>
               <LoginPage />
+            </PublicRoute>
+          }
+        />
+
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <RegisterPage />
             </PublicRoute>
           }
         />

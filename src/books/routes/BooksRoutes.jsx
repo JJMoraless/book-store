@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { Navbar } from "../../ui";
-import { BookPage, FictionPage, MangaPage, SearchPage } from "../pages";
+import { BookPage, FictionPage, MangaPage } from "../pages";
 import { CartPage, InventoryPage } from "../../shop";
 
 export const BooksRoutes = () => {
@@ -14,7 +14,6 @@ export const BooksRoutes = () => {
           {/* Books */}
           <Route path="fiction" element={<FictionPage />} />
           <Route path="manga" element={<MangaPage />} />
-          <Route path="search" element={<SearchPage />} />
           <Route path="book/:id" element={<BookPage />} />
 
           {/* Shop  */}

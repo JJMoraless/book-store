@@ -18,7 +18,7 @@ export const BookList = ({ publisher }) => {
 
       <ul className="grid-cards">
         {books.map((item) => {
-          return <BookCard key={item._id} {...item} />
+          return <BookCard key={item._id} {...item} />;
         })}
       </ul>
     </>

@@ -12,8 +12,8 @@ export const getBooks = (page = 1, limit = 5) => {
   return async (dispatch) => {
     dispatch(startLoadingBooks());
     const res = await bookStoreApi.get(`products?limit=${limit}&page=${page}`);
-    const data = res.data.data;
-    dispatch(setBooks({ books: data.products, page, total: data.total_books }));
+    const data = res?.data?.data;
+    dispatch(setBooks({ books: data?.products, page, total: data?.total_books }));
   };
 };
 

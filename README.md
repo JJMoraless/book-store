@@ -1,11 +1,12 @@
-# React + Vite
+# Librería Online - Proyecto MERN
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web de una librería online que permite a los usuarios reservar y realizar pedidos de libros. Utiliza el stack MERN (MongoDB, Express, React, Node.js) para el desarrollo.
 
-Currently, two official plugins are available:
+- documentacion endpoints (back-end): https://documenter.getpostman.com/view/21399364/2s9YJdXNug
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## capturas de la aplicacion
+![Texto Alternativo](./assets/Captura%20de%20pantalla%202023-10-05%20101830.png)
+![asas](./assets/Captura%20de%20pantalla%202023-10-05%20101727.png)
+![asas](./assets/Captura%20de%20pantalla%202023-10-05%20102228.png)
 
-
-http://192.168.129.72:5037/login
+![asas](./assets/Captura%20de%20pantalla%202023-10-05%20102412.png)

@@ -9,12 +9,9 @@ export const BookPage = () => {
   const { book, isLoading, dataReservations } = useSelector(
     (state) => state.books
   );
+  
   const { register, handleSubmit } = useForm();
   const [isErrorDates, setIsErrorDates] = useState(false);
-  console.log(
-    "🚀 ~ file: BookPage.jsx:14 ~ BookPage ~ isErrorDates:",
-    isErrorDates
-  );
 
   const dispatch = useDispatch();
   const { id } = useParams();
