@@ -1,19 +1,25 @@
 import PropTypes from "prop-types";
-import { getBooksByPublisher } from "../helpers";
 import { BookCard } from "./";
-import { useMemo } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getBooks } from "../../store/books";
 
 export const BookList = ({ publisher }) => {
-  const books = useMemo(() => getBooksByPublisher(publisher), [publisher]);
+  const { books } = useSelector((state) => state.books);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getBooks(1, 100));
+  }, []);
 
   return (
     <>
       <h3 className="pb-3 display-6">{publisher}</h3>
 
-      <ul className="row row-cols-md-3 g-3 pb-5">
-        {books.map((item) => (
-          <BookCard key={item.id} {...item} />
-        ))}
+      <ul className="grid-cards">
+        {books.map((item) => {
+          return <BookCard key={item._id} {...item} />
+        })}
       </ul>
     </>
   );
