@@ -10,3 +10,10 @@ Este proyecto es una aplicación web de una librería online que permite a los u
 ![asas](./assets/Captura%20de%20pantalla%202023-10-05%20102228.png)
 
 ![asas](./assets/Captura%20de%20pantalla%202023-10-05%20102412.png)
+
+
+![asas](./assets/Captura%20de%20pantalla%202023-10-05%20102412.png)
+
+# modelado de datos
+![asas](./assets/Captura%20de%20pantalla%202023-10-05%20103020.png)
+
