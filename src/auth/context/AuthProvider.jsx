@@ -1,4 +1,3 @@
-import axios from "axios";
 import PropTypes from "prop-types";
 import { useReducer } from "react";
 import { AuthContext, authReducer } from "./";
@@ -31,7 +30,6 @@ export const AuthProvider = ({ children }) => {
     dispatch(action);
   };
 
-
   return (
     <AuthContext.Provider
       value={{
@@ -40,7 +38,6 @@ export const AuthProvider = ({ children }) => {
         // methods
         login,
         logOut,
-
       }}
     >
       {children}
