@@ -9,7 +9,7 @@ export const BooksRoutes = () => {
       <Navbar />
       <div className="container mt-5 pt-3">
         <Routes>
-          <Route path="/" element={<Navigate to="/fiction" />} />
+          <Route path="/" element={<Navigate to="/manga" />} />
 
           {/* Books */}
           <Route path="fiction" element={<FictionPage />} />
